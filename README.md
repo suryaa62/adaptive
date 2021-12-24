@@ -11,29 +11,79 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Adaptive
+
+This package provides set of widgets and functions which makes it easy and fast to write platform and screen adaptive code. By using this package you can avoid using if statements and MediaQuery for different platform and screen sizes.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+* Developer can define thier own breakpoints in AdaptiveData widget.
+* Generic functions to return values based on breakpoints or platform. 
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+* Simply install and import the package and start using.
+* All functions require AdaptiveData widget above the tree.
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Add AdaptiveData anywhere above the tree.
 
 ```dart
-const like = 'sample';
+
+Widget build(BuildContext context){
+	return AdaptiveData(
+		smallScreenBreakpoint: 480,
+      		mediumScreenBreakpoint: 768,
+      		largeScreenBreakpoint: 1024,
+      		child: Scaffold( 
+			body: Container()
+			),
+	);
+}
+
 ```
+
+Use functions anywhere below the AdaptiveData.
+
+```dart
+
+AdaptiveIfScreen<Widget>(
+              context: context,
+              ifNotSpecified: listView(), // if screen size is less than medium or small breakpoint then use this as 
+              ifLarge: Row(
+                children: [
+                  Expanded(flex: 50, child: listView()),
+                  Expanded(flex: 50, child: SampleItemDetailsView())
+                ],
+              ))),
+    );
+
+```
+
+```dart
+
+Center(
+        child: Padding(
+          padding: AdaptiveIfScreen(
+              context: context,
+              ifNotSpecified: EdgeInsets.all(10),
+              ifLarge: EdgeInsets.all(20),
+              ifMedium: EdgeInsets.all(15),
+              ifSmall: EdgeInsets.all(10)),
+          child: Text('More Information Here'),
+        ),
+      ),
+
+```
+## Functions
+
+* AdaptiveIfScreen\<T> : To return screen size specific values.
+* AdaptiveIfPlatform\<T> : To return platform specifice values.
+* AdaptiveIf\<T> : Combination of AdaptiveIfScreen and AdaptiveIfPlatform.
+* AdaptivePlatformVoidCallback : Returns platform specific voidCallback ( for example to provide deifferent onTap callback).
+* AdaptiveScreenVoidCallback : Returnns screen size specifc voidCallback.
 
 ## Additional information
 
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
+To raise issues , suggestions and ideas: https://github.com/suryaa62/adaptive
