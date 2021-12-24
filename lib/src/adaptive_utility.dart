@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:adaptive/adaptive.dart';
+import 'package:adaptive_ui/adaptive.dart';
 
 enum ScreenSize {
   isMedium,

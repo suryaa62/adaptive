@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:adaptive/adaptive.dart';
+import 'package:adaptive_ui/adaptive.dart';
 
 T AdaptiveIfPlatform<T>(
     {required BuildContext context,
