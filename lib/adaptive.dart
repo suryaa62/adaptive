@@ -1,6 +1,6 @@
-library adaptive;
+library adaptic;
 
-export 'package:adaptive_ui/src/adaptive_data.dart';
-export 'package:adaptive_ui/src/adaptive_if.dart';
-export 'package:adaptive_ui/src/adaptive_void_callback.dart';
-export 'package:adaptive_ui/src/adaptive_utility.dart';
+export 'package:adaptic/src/adaptive_data.dart';
+export 'package:adaptic/src/adaptive_if.dart';
+export 'package:adaptic/src/adaptive_void_callback.dart';
+export 'package:adaptic/src/adaptive_utility.dart';
